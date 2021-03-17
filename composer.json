@@ -1,0 +1,40 @@
+{
+    "name": "rich-id/template-bundle",
+    "description": "A magic bundle",
+    "type": "symfony-bundle",
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "RichId",
+            "homepage": "https://www.rich-id.com"
+        }
+    ],
+    "support": {
+        "email": "contact@rich-id.com",
+        "source": "https://github.com/rich-id/template-bundle",
+        "docs": "https://github.com/rich-id/template-bundle/blob/master/README.md",
+        "issues": "https://github.com/rich-id/template-bundle/issues"
+    },
+    "require": {
+        "php": ">=7.3",
+        "rich-id/bundle-toolbox": "*"
+    },
+    "require-dev": {
+        "rich-id/test-suite": "^0.1"
+    },
+    "autoload": {
+        "psr-4": {
+            "RichId\\TemplateBundle\\": ""
+        }
+    },
+    "autoload-dev": {
+        "psr-4": {
+            "RichId\\TemplateBundle\\Tests\\": "Tests/"
+        }
+    },
+    "config": {
+        "bin-dir": "bin",
+        "discard-changes": true,
+        "sort-packages": true
+    }
+}
