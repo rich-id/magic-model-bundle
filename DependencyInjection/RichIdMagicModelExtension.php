@@ -1,8 +1,8 @@
 <?php declare(strict_types=1);
 
-namespace RichId\TemplateBundle\DependencyInjection;
+namespace RichId\MagicModelBundle\DependencyInjection;
 
-use RichId\BundleToolbox\Configuration\AbstractExtension;
+use RichCongress\BundleToolbox\Configuration\AbstractExtension;
 use Symfony\Component\Config\FileLocator;
 use Symfony\Component\DependencyInjection\ContainerBuilder;
 use Symfony\Component\DependencyInjection\Loader\XmlFileLoader;
@@ -12,7 +12,7 @@ use Symfony\Component\DependencyInjection\Loader\XmlFileLoader;
  *
  * To learn more see {@link http://symfony.com/doc/current/cookbook/bundles/extension.html}
  */
-class RichIdUnitExtension extends AbstractExtension
+class RichIdMagicModelExtension extends AbstractExtension
 {
     /**
      * @param array            $configs

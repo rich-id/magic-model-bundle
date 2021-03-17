@@ -1,14 +1,14 @@
 <?php declare(strict_types=1);
 
-namespace RichId\TemplateBundle\Tests;
+namespace RichId\MagicModelBundle\Tests;
 
-use RichId\Bundle\UnitBundle\TestCase\TestCase;
-use RichId\TemplateBundle\RichIdTemplateBundle;
+use RichCongress\TestTools\TestCase\TestCase;
+use RichId\MagicModelBundle\RichIdMagicModelBundle;
 
 /**
  * Class DummyTest
  *
- * @package   RichId\TemplateBundle\Tests
+ * @package   RichId\MagicModelBundle\Tests
  * @author    Nicolas Guilloux <nguilloux@rich-id.com>
  * @copyright 2014 - 2020 RichId (https://www.rich-id.com)
  */
@@ -16,8 +16,8 @@ class DummyTest extends TestCase
 {
     public function testInstanciateBundle(): void
     {
-        $bundle = new RichIdTemplateBundle();
+        $bundle = new RichIdMagicModelBundle();
 
-        self::assertInstanceOf(RichIdTemplateBundle::class, $bundle);
+        self::assertInstanceOf(RichIdMagicModelBundle::class, $bundle);
     }
 }
