@@ -5,6 +5,7 @@ namespace RichId\MagicModelBundle\DependencyInjection;
 use RichCongress\BundleToolbox\Configuration\AbstractConfiguration;
 use Symfony\Component\Config\Definition\Builder\ArrayNodeDefinition;
 use Symfony\Component\Config\Definition\Builder\NodeBuilder;
+use Symfony\Component\HttpFoundation\Response;
 
 /**
  * This is the class that validates and merges configuration from your app/config files
@@ -34,6 +35,24 @@ class Configuration extends AbstractConfiguration
      */
     protected function buildConfig(NodeBuilder $nodeBuilder): void
     {
-        // Do something
+        $nodeBuilder
+            ->arrayNode('validation_rounds')
+                ->info('Validate DTO with the the group and throw a HTTP exception with the mentioned status code in case of violations')
+                ->defaultValue([
+                    [
+                        'keyname'          => 'default',
+                        'validation_group' => 'Default',
+                        'http_status_code' => Response::HTTP_BAD_REQUEST,
+                    ]
+                ])
+                ->arrayPrototype()
+                    ->children()
+                        ->scalarNode('keyname')->defaultNull()->end()
+                        ->scalarNode('validation_group')->defaultNull()->end()
+                        ->integerNode('http_status_code')->defaultNull()->end()
+                        ->integerNode('priority')->defaultValue(0)->end()
+                    ->end()
+                ->end()
+            ->end();
     }
 }

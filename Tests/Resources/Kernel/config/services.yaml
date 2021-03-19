@@ -1,0 +1,7 @@
+services:
+    _defaults:
+        autoconfigure: true
+        autowire: true
+        public: true
+
+    RichId\MagicModelBundle\Builder\MagicModelBuilder: ~

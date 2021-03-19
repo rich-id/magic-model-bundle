@@ -3,6 +3,10 @@
 namespace RichId\MagicModelBundle\DependencyInjection;
 
 use RichCongress\BundleToolbox\Configuration\AbstractExtension;
+use RichId\MagicModelBundle\Binder\Binders\BinderInterface;
+use RichId\MagicModelBundle\DependencyInjection\CompilerPass\BinderCompilerPass;
+use RichId\MagicModelBundle\DependencyInjection\CompilerPass\TypeGuesserCompilerPass;
+use RichId\MagicModelBundle\TypeGuesser\Guessers\TypeGuesserInterface;
 use Symfony\Component\Config\FileLocator;
 use Symfony\Component\DependencyInjection\ContainerBuilder;
 use Symfony\Component\DependencyInjection\Loader\XmlFileLoader;
@@ -29,6 +33,19 @@ class RichIdMagicModelExtension extends AbstractExtension
         );
 
         $loader = new XmlFileLoader($container, new FileLocator(__DIR__ . '/../Resources'));
-        $loader->load('services.yml');
+        $loader->load('services.xml');
+
+        $this->autoConfiguration($container);
+    }
+
+    protected function autoConfiguration(ContainerBuilder $container): void
+    {
+        $container
+            ->registerForAutoconfiguration(TypeGuesserInterface::class)
+            ->addTag(TypeGuesserCompilerPass::TYPE_GUESSER_TAG);
+
+        $container
+            ->registerForAutoconfiguration(BinderInterface::class)
+            ->addTag(BinderCompilerPass::BINDER_TAG);
     }
 }

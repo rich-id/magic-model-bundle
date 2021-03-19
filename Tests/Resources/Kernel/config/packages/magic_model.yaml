@@ -1,0 +1,11 @@
+rich_id_magic_model:
+    validation_rounds:
+        - keyname: default
+          validation_group: Default
+          http_status_code: 400
+          priority: 0
+        - keyname: conflict
+          validation_group: http_conflict_exception
+          http_status_code: 409
+          priority: -1
+

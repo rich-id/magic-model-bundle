@@ -7,5 +7,26 @@
     <services>
         <defaults autowire="true" autoconfigure="true" public="false"/>
         <!-- Your Symfony Services -->
+        <service id="RichId\MagicModelBundle\Listener\MagicModelViolationsExceptionListener">
+            <tag name="kernel.event_listener" event="kernel.exception"/>
+        </service>
+
+        <!-- Binder manager -->
+        <service id="RichId\MagicModelBundle\Binder\BinderManagerInterface" alias="RichId\MagicModelBundle\Binder\BinderManager" />
+        <service id="RichId\MagicModelBundle\Binder\BinderManager" />
+
+        <!-- Binder -->
+        <service id="RichId\MagicModelBundle\Binder\Binders\StringBinder" />
+
+        <!-- Builder -->
+        <service id="RichId\MagicModelBundle\Builder\MagicModelBuilder" />
+
+        <!-- TypeGuesser manager -->
+        <service id="RichId\MagicModelBundle\TypeGuesser\TypeGuesserManagerInterface" alias="RichId\MagicModelBundle\TypeGuesser\TypeGuesserManager" />
+        <service id="RichId\MagicModelBundle\TypeGuesser\TypeGuesserManager" />
+
+        <!-- TypeGuesser -->
+        <service id="RichId\MagicModelBundle\TypeGuesser\Guessers\PHPDocTypeGuesser" />
+        <service id="RichId\MagicModelBundle\TypeGuesser\Guessers\PropertyTypeTypeGuesser" />
     </services>
 </container>

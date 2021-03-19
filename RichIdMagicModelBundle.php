@@ -3,6 +3,8 @@
 namespace RichId\MagicModelBundle;
 
 use RichCongress\BundleToolbox\Configuration\AbstractBundle;
+use RichId\MagicModelBundle\DependencyInjection\CompilerPass\BinderCompilerPass;
+use RichId\MagicModelBundle\DependencyInjection\CompilerPass\TypeGuesserCompilerPass;
 
 /**
  * Class RichIdMagicModelBundle
@@ -13,5 +15,8 @@ use RichCongress\BundleToolbox\Configuration\AbstractBundle;
  */
 class RichIdMagicModelBundle extends AbstractBundle
 {
-    public const COMPILER_PASSES = [];
+    public const COMPILER_PASSES = [
+        BinderCompilerPass::class,
+        TypeGuesserCompilerPass::class,
+    ];
 }

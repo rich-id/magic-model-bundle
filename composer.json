@@ -16,11 +16,19 @@
         "issues": "https://github.com/rich-id/magic-model-bundle/issues"
     },
     "require": {
-        "php": ">=7.3",
-        "richcongress/bundle-toolbox": "*"
+        "php": ">=7.4",
+        "php-di/phpdoc-reader": "^2.2",
+        "richcongress/bundle-toolbox": "*",
+        "symfony/expression-language": "^5.2",
+        "symfony/property-access": "^5.2",
+        "symfony/serializer": "^5.2",
+        "symfony/validator": "^5.2"
     },
     "require-dev": {
-        "richcongress/test-suite": "^0.1"
+        "php": ">=7.4",
+        "roave/security-advisories": "dev-latest",
+        "richcongress/test-suite": "^0.1",
+        "phpunit/phpunit": "^8.5"
     },
     "autoload": {
         "psr-4": {
